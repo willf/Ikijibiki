@@ -1,0 +1,59 @@
+body {
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
+  word-wrap: break-word;
+  padding: 3px;
+}
+
+p { 
+  margin: 4px; 
+  font-size:16px;
+}
+
+h1, h2, h3 {
+  color: #1980D7;
+}
+#wordlist {
+  margin: 20px; 
+  font-size:16px; 
+  font-weight:bolder;
+  border-style:  solid;
+  border-width: 1px;
+  border-color: #DDD;
+  padding: 10px;
+}
+
+.word { 
+  color:#1980D7;
+  cursor: pointer; 
+}
+
+.expando {
+ cursor: pointer;  
+}
+
+.highlight { 
+  background:yellow; 
+}
+
+#ikijibiki {
+  font-weight: bold;
+}
+
+#wordcount {
+  font-weight: bold;
+}
+
+.wn_small_heart {
+  height: 15px;
+}
+#footer {
+
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #DDD;
+}
+#according {
+  display: none;
+}

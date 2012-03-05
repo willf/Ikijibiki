@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ikijibiki</title>
+  <%= stylesheet_link_tag    "stylesheets/index.css", :media => "all" %>
+  <%= javascript_include_tag "http://code.jquery.com/jquery-latest.js" %>
+  <%= javascript_include_tag "javascripts/index.js" %>
+</head>
+<body>
+
+
+<div id="body">
+    <h1>Wordnik Ikijibiki</h1>
+    <p>How many words do you know? Are you an <i>Ikijibiki</i>? At our latest count, Wordnik has 636,357 words with definitions. 
+    Scan the words below. Here's a random sample—if you know a word, click on it. You'll see a rough estimate of the 
+    total number of English words you know. (Click on the hearts to see the definitions.)</p>
+    <div id="wordlist">
+        <% @words.each do |word| %>
+        <span><span class="word"> <%= word %> </span> <a target='_new' href='http://wordnik.com/word/<%= word %>'>
+            <%= image_tag("images/wordnik_heart.png", :class => "wn_small_heart") %></a> </span>
+        <% end %>
+    </div>
+    <p id="according">According to what you've told me so far, you know about <span id="wordcount">0</span> words. <span id="ikijibiki"></p>
+   <div id="definition" />
+</div>
+<div id=footer>
+<%= image_tag ("images/wordnik_badge_a3.png") %>
+</div>
+</body>
+</html>
