@@ -1,4 +1,11 @@
 $(document).ready(function () {
+  
+  window.wordnik = new Api({
+    discoveryUrl: "http://api.wordnik.com/v4/resources.json",
+    apiKey: "YOURAPI",
+    success: function() {  }
+  });
+     
   function addCommas(nStr)
   {
   	nStr += '';
@@ -11,11 +18,21 @@ $(document).ready(function () {
   	}
   	return x1 + x2;
   }
+  
   var sample_size = 50
   var kwords = 636.357
-
-  $("#according").show();
-
+  
+  $(".wn_small_heart").click(function () {
+    var w = $(this).parent().find(".word").text().trim()
+    wordnik.word.getDefinitions({'word': w}, function(definitions) {
+      //console.log(definitions);
+    var t = definitions[0]["text"]
+    var s = " <span class='attr'><a class ='wn_link' href='http://wordnik.com/words/" + w + "'>more</a></span>"
+    var a = "<div class='attr'>"+ definitions[0]["attributionText"]+ s + "</div>"
+      $("#definition").html(t + a)
+    })
+  });
+  
   $(".word").click(function () {
     // remove the current definition (if there)
     $("#definition").html('')

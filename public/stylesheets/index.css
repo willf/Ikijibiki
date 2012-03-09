@@ -24,6 +24,18 @@ h1, h2, h3 {
   padding: 10px;
 }
 
+#definition {
+  margin: 8px; 
+  font-size:16px; 
+  font-weight:bolder;
+  padding: 10px;
+}
+
+.attr {
+  font-weight:normal;
+  font-size:12px;
+}
+
 .word { 
   color:#1980D7;
   cursor: pointer; 

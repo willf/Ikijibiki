@@ -11,3 +11,4 @@ get "/" do
   @words = Wordnik.word.get_random_words("limit"=>50, "hasDictionaryDef" => true).map{|w| w["word"]}
   erb :index
 end
+
