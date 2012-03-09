@@ -2,7 +2,7 @@ $(document).ready(function () {
   
   window.wordnik = new Api({
     discoveryUrl: "http://api.wordnik.com/v4/resources.json",
-    apiKey: "YOURAPI",
+    apiKey: "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5",
     success: function() {  }
   });
      
@@ -33,6 +33,8 @@ $(document).ready(function () {
     })
   });
   
+  $("#according").show();
+
   $(".word").click(function () {
     // remove the current definition (if there)
     $("#definition").html('')
