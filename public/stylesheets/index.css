@@ -15,7 +15,7 @@ h1, h2, h3 {
   color: #1980D7;
 }
 #wordlist {
-  margin: 20px; 
+  margin: 20px 0;
   font-size:16px; 
   font-weight:bolder;
   border-style:  solid;
@@ -24,7 +24,7 @@ h1, h2, h3 {
   padding: 10px;
 }
 
-#definition {
+#definitions {
   margin: 8px; 
   font-size:16px; 
   font-weight:bolder;
@@ -61,10 +61,10 @@ h1, h2, h3 {
   height: 15px;
 }
 #footer {
-
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: #DDD;
+  padding-top: 10px;
 }
 #according {
   display: none;
