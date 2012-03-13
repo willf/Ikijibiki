@@ -4,7 +4,7 @@ require 'sinatra/static_assets'
 require "sinatra/reloader" if development?
 
 Wordnik.configure do |config|
-  config.api_key = ENV['WORDNIK_API_KEY']
+  config.api_key = "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
 end
 
 get "/" do
