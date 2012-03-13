@@ -21,28 +21,25 @@ $(document).ready(function () {
   
   var sample_size = 50;
   var kwords = 636.357;
+  var definitionTemplate = $('#definitionTemplate').html();
   
   $(".wn_small_heart").click(function () {
-    var w = $(this).parent().find(".word").text().trim();
-    wordnik.word.getDefinitions({'word': w}, function(definitions) {
-      console.log(definitions);
-      if (definitions.length > 0) {
-        var t = w + ": " + definitions[0]["text"];
-        var s = " <span class='attr'><a class ='wn_link' href='http://wordnik.com/words/" + w + "'>more</a></span>";
-        var a = "<div class='attr'>"+ definitions[0]["attributionText"]+ s + "</div>";
-      } else {
-        var t = w + ": No definition found";
-        var a = "";
-      }
-      $("#definitions").prepend(t + a);
+    var word = $(this).parent().find(".word").text().trim();
+    wordnik.word.getDefinitions({'word': word}, function(definitions) {
+      $("#definitions").prepend(
+        Mustache.render(definitionTemplate, {
+            word: definitions[0].word,
+            attributionText: definitions[0].attributionText,
+            definitions: definitions
+          }
+        )
+      );
     });
   });
   
   $("#according").show();
 
   $(".word").click(function () {
-    // remove the current definition (if there)
-    // $("#definitions").html('')
 
     // highlight it
     $(this).toggleClass("highlight");

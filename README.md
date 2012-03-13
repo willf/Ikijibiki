@@ -11,4 +11,3 @@ The highlighting logic is in public/javascripts/index.js
 Will Fitzgerald
 March, 2012
   
- 

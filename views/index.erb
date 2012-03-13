@@ -3,6 +3,7 @@
 <head>
   <title>Ikijibiki</title>
   <%= stylesheet_link_tag    "stylesheets/index.css", :media => "all" %>
+  <%= javascript_include_tag "https://raw.github.com/janl/mustache.js/master/mustache.js" %>
   <%= javascript_include_tag "http://code.jquery.com/jquery-latest.js" %>
   <%= javascript_include_tag "javascripts/index.js" %>
   <%= javascript_include_tag "javascripts/swagger.js" %>
@@ -35,12 +36,29 @@
     </p>
 
 
-   <div id="definitions"></div>
+   <ul id="definitions"></ul>
 
 </div>
 
 <div id="footer">
   <%= link_to image_tag("images/wordnik_badge_a3.png"), "http://www.wordnik.com" %>
+</div>
+
+<div id="definitionTemplate" style="display:none">
+  <li>
+    <span class='word'>{{word}}</span>
+
+    <ol>
+      {{#definitions}}
+      <li>{{text}}</li>
+      {{/definitions}}
+    </ol>
+    
+    <span class='attribution'>
+      {{attributionText}}
+      <a class ='wn_link' href='http://wordnik.com/words/{{word}}'>more</a>
+    </span>
+  </li>
 </div>
 
 </body>
