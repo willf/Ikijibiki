@@ -2,10 +2,10 @@ $(document).ready(function () {
   
   window.wordnik = new Api({
     discoveryUrl: "http://api.wordnik.com/v4/resources.json",
-    apiKey: "YOUR_API_KEY",
+    apiKey: "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5",
     success: function() {  }
   });
-     
+
   function addCommas(nStr)
   {
   	nStr += '';
@@ -19,35 +19,37 @@ $(document).ready(function () {
   	return x1 + x2;
   }
   
-  var sample_size = 50
-  var kwords = 636.357
+  var sample_size = 50;
+  var kwords = 636.357;
+  var definitionTemplate = $('#definitionTemplate').html();
   
-  $(".wn_small_heart").click(function () {
-    var w = $(this).parent().find(".word").text().trim()
-    wordnik.word.getDefinitions({'word': w}, function(definitions) {
-      //console.log(definitions);
-    var t = definitions[0]["text"]
-    var s = " <span class='attr'><a class ='wn_link' href='http://wordnik.com/words/" + w + "'>more</a></span>"
-    var a = "<div class='attr'>"+ definitions[0]["attributionText"]+ s + "</div>"
-      $("#definition").html(t + a)
-    })
+  $(".lookup").click(function () {
+    var word = $(this).parent().find(".word").text().trim();
+    wordnik.word.getDefinitions({'word': word}, function(definitions) {
+      $("#definitions").prepend(
+        Mustache.render(definitionTemplate, {
+            word: definitions[0].word,
+            attributionText: definitions[0].attributionText,
+            definitions: definitions
+          }
+        )
+      );
+    });
   });
   
   $("#according").show();
 
-  $(".word").click(function () {
-    // remove the current definition (if there)
-    $("#definition").html('')
+  $("span.word").click(function () {
 
     // highlight it
     $(this).toggleClass("highlight");
     // calculate size of vocabulary — note magic numbers
     var w = kwords * ($('.highlight').length / sample_size);
-    w = Math.round(w)*1000
+    w = Math.round(w)*1000;
 
     $('#wordcount').text(addCommas(w));
 
     // declare intelligence...
-    (w > 200000) ?  $('#ikijibiki').text("You are a walking dictionary! an Ikijibiki!") : $('#ikijibiki').text('')
+    (w > 200000) ?  $('#ikijibiki').text("You are a walking dictionary! an Ikijibiki!") : $('#ikijibiki').text('');
   });
 });

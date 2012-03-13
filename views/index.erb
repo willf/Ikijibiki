@@ -3,6 +3,7 @@
 <head>
   <title>Ikijibiki</title>
   <%= stylesheet_link_tag    "stylesheets/index.css", :media => "all" %>
+  <%= javascript_include_tag "https://raw.github.com/janl/mustache.js/master/mustache.js" %>
   <%= javascript_include_tag "http://code.jquery.com/jquery-latest.js" %>
   <%= javascript_include_tag "javascripts/index.js" %>
   <%= javascript_include_tag "javascripts/swagger.js" %>
@@ -11,20 +12,52 @@
 
 
 <div id="body">
+
     <h1>Wordnik Ikijibiki</h1>
+
     <p>How many words do you know? Are you an <i>Ikijibiki</i>? At our latest count, Wordnik has 636,357 words with definitions. 
     Scan the words below. Here's a random sample—if you know a word, click on it. You'll see a rough estimate of the 
     total number of English words you know. (Click on the hearts to see definitions.)</p>
-    <div id="wordlist">
-        <% @words.each do |word| %>
-        <span><span class="word"> <%= word %></span>&nbsp;<%= image_tag("images/wordnik_heart.png", :class => "wn_small_heart") %> </span>
-        <% end %>
-    </div>
-    <p id="according">According to what you've told me so far, you know about <span id="wordcount">0</span> words.  <span id="ikijibiki"></p>
-   <div id="definition" />
+
+    <ul id="wordlist">
+      <% @words.each do |word| %>
+        <li>
+          <span class="word"> <%= word %></span>
+          <span class="lookup">?</span>
+        </li>
+      <% end %>
+    </ul>
+
+    <p id="according">
+      According to what you've told me so far, you know about 
+      <span id="wordcount">0</span> words.
+      <span id="ikijibiki"></span>
+    </p>
+
+
+   <ul id="definitions"></ul>
+
 </div>
-<div id=footer>
-<%= image_tag ("images/wordnik_badge_a3.png") %>
+
+<div id="footer">
+  <%= link_to image_tag("images/wordnik_badge_a3.png"), "http://www.wordnik.com" %>
+</div>
+
+<div id="definitionTemplate" style="display:none">
+  <li>
+    <span class='word'>{{word}}</span>
+
+    <ol>
+      {{#definitions}}
+      <li>{{text}}</li>
+      {{/definitions}}
+    </ol>
+    
+    <span class='attribution'>
+      {{attributionText}}
+      <a class ='wn_link' href='http://wordnik.com/words/{{word}}'>more</a>
+    </span>
+  </li>
 </div>
 
 </body>

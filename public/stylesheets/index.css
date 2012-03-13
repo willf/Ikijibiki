@@ -14,58 +14,96 @@ p {
 h1, h2, h3 {
   color: #1980D7;
 }
-#wordlist {
-  margin: 20px; 
-  font-size:16px; 
-  font-weight:bolder;
-  border-style:  solid;
-  border-width: 1px;
-  border-color: #DDD;
-  padding: 10px;
+
+ul#wordlist {
+  margin: 20px 0;
+  padding: 0;
+  font-size:1.8em;
+  font-weight:bold;
+  list-style: none;
+  float: none;
+  clear: both;
+  overflow: hidden;
 }
 
-#definition {
-  margin: 8px; 
-  font-size:16px; 
-  font-weight:bolder;
-  padding: 10px;
+ul#wordlist > li {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0 20px 0 0;
 }
 
-.attr {
-  font-weight:normal;
-  font-size:12px;
-}
-
-.word { 
-  color:#1980D7;
+ul#wordlist > li span.word { 
+  color:black;
   cursor: pointer; 
+  padding: 0;
 }
 
-.expando {
- cursor: pointer;  
+ul#wordlist > li span.word.highlight { 
+  color: #DDD; 
 }
 
-.highlight { 
-  background:yellow; 
+ul#wordlist > li span.lookup {
+  color: #CCC;
+  font-size: .5em;
+  cursor: pointer;
+}
+
+ul#wordlist > li span.lookup:hover {
+  color: blue;
+}
+
+ul#definitions {
+  margin: 0; 
+  padding: 5px;
+  list-style: none;
+}
+
+ul#definitions > li {
+  margin: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #DDD;
+}
+
+ul#definitions > li span.word {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: black;
+}
+
+ul#definitions > li > ol {
+  margin: 0;
+  padding: 0 0 0 25px;
+}
+
+ul#definitions > li > ol > li {
+  padding: 4px 0;
+}
+
+ul#definitions > li span.attribution {
+  font-size: .8em;
+  color: #999;
+}
+
+ul#definitions > li span.attribution a {
+  color: #666;
 }
 
 #ikijibiki {
   font-weight: bold;
 }
 
-#wordcount {
-  font-weight: bold;
-}
 
-.wn_small_heart {
-  height: 15px;
-}
 #footer {
-
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: #DDD;
+  margin: 20px 0;
 }
+
 #according {
   display: none;
+  font-size: 1.5em;
+}
+
+#according #wordcount {
+  color: #FF5401;
+  font-weight: bold;
 }
