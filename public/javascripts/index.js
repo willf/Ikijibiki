@@ -23,7 +23,7 @@ $(document).ready(function () {
   var kwords = 636.357;
   var definitionTemplate = $('#definitionTemplate').html();
   
-  $(".wn_small_heart").click(function () {
+  $(".lookup").click(function () {
     var word = $(this).parent().find(".word").text().trim();
     wordnik.word.getDefinitions({'word': word}, function(definitions) {
       $("#definitions").prepend(
@@ -39,7 +39,7 @@ $(document).ready(function () {
   
   $("#according").show();
 
-  $(".word").click(function () {
+  $("span.word").click(function () {
 
     // highlight it
     $(this).toggleClass("highlight");

@@ -14,16 +14,44 @@ p {
 h1, h2, h3 {
   color: #1980D7;
 }
-#wordlist {
+
+ul#wordlist {
   margin: 20px 0;
-  font-size:16px; 
-  font-weight:bolder;
-  border-style:  solid;
-  border-width: 1px;
-  border-color: #DDD;
-  padding: 10px;
+  padding: 0;
+  font-size:1.8em;
+  font-weight:bold;
+  list-style: none;
+  float: none;
+  clear: both;
+  overflow: hidden;
 }
 
+ul#wordlist > li {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0 20px 0 0;
+}
+
+ul#wordlist > li span.word { 
+  color:black;
+  cursor: pointer; 
+  padding: 0;
+}
+
+ul#wordlist > li span.word.highlight { 
+  color: #DDD; 
+}
+
+ul#wordlist > li span.lookup {
+  color: #CCC;
+  font-size: .5em;
+  cursor: pointer;
+}
+
+ul#wordlist > li span.lookup:hover {
+  color: blue;
+}
 
 ul#definitions {
   margin: 0; 
@@ -52,7 +80,6 @@ ul#definitions > li > ol > li {
   padding: 4px 0;
 }
 
-
 ul#definitions > li span.attribution {
   font-size: .8em;
   color: #999;
@@ -62,35 +89,21 @@ ul#definitions > li span.attribution a {
   color: #666;
 }
 
-
-.word { 
-  color:#1980D7;
-  cursor: pointer; 
-}
-
-.expando {
- cursor: pointer;  
-}
-
-.highlight { 
-  background:yellow; 
-}
-
 #ikijibiki {
   font-weight: bold;
 }
 
-#wordcount {
-  font-weight: bold;
-}
 
-.wn_small_heart {
-  height: 15px;
-}
 #footer {
   margin: 20px 0;
 }
 
 #according {
   display: none;
+  font-size: 1.5em;
+}
+
+#according #wordcount {
+  color: #FF5401;
+  font-weight: bold;
 }

@@ -19,15 +19,14 @@
     Scan the words below. Here's a random sample—if you know a word, click on it. You'll see a rough estimate of the 
     total number of English words you know. (Click on the hearts to see definitions.)</p>
 
-    <div id="wordlist">
+    <ul id="wordlist">
       <% @words.each do |word| %>
-        <span>
+        <li>
           <span class="word"> <%= word %></span>
-          &nbsp;
-          <%= image_tag("images/wordnik_heart.png", :class => "wn_small_heart") %>
-        </span>
+          <span class="lookup">?</span>
+        </li>
       <% end %>
-    </div>
+    </ul>
 
     <p id="according">
       According to what you've told me so far, you know about 
