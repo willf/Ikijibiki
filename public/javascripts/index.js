@@ -37,7 +37,7 @@ $(document).ready(function () {
     });
   });
   
-  $("#according").show();
+  $("#according").hide();
 
   $("span.word").click(function () {
 
@@ -48,7 +48,7 @@ $(document).ready(function () {
     w = Math.round(w)*1000;
 
     $('#wordcount').text(addCommas(w));
-
+    (w > 0) ? $("#according").show() : $("#according").hide();
     // declare intelligence...
     (w > 200000) ?  $('#ikijibiki').text("You are a walking dictionary! an Ikijibiki!") : $('#ikijibiki').text('');
   });
